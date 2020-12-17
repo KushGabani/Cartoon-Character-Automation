@@ -1,0 +1,185 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<div class="main_container">
+  <div>
+    <img src="../static/assets/background.png" class="background" />
+  </div>
+  <div>
+    <img src="../static/assets/donut.png" class="prop" />
+  </div>
+  <div class="container">
+    <a href = "#" style = "text-decoration: none; color: black;">
+    <div style = "width: fit-content; margin-top: 4rem;">
+      <div style="display: flex; justify-content: start; align-items: center;">
+        <img src="../static/assets/back.png" width="12" />
+        <p style = "margin: 0 0.5rem;">Home</p>
+      </div>
+    </div>
+    </a>
+    <div class="content" id="shiftUp">
+      <div class="reference">
+        <a href="#">
+          <img
+            src="../static/assets/GitHub-Mark-64px 3.png"
+            alt="GitHub-Mark-64px 3.png"
+            style="height: 1.4rem; width: 1.4rem"
+          />&nbsp;&nbsp;
+        </a>
+        <a
+          href="https://www.kaggle.com/alexattia/the-simpsons-characters-dataset"
+          style="color: #212121; text-decoration: none"
+          target="_blank"
+        >
+          <span
+            style="
+              font-size: 1.5rem;
+              font-family: 'Reem Kufi', sans;
+              margin: 0 15px;
+              padding-top: 5px;
+            "
+            >kaggle
+          </span>
+        </a>
+      </div>
+
+      <h1 class="title" style="color: #ffc804">Character Recognition</h1>
+
+      <p class="description">
+        Cartoon character recognition known as character recognition is used
+        to identify cartoon characters in an image. From a total of around
+        20 characters from the series, the correct one can be predicted
+        using the image. Identify your character with just a click!
+      </p>
+
+      <div class = "buttonArena align-center" style = "position: relative;">
+        <form id="uploadForm"
+              enctype="multipart/form-data"
+              method="post">
+          <label for = "image-upload" class = "uploadBtn" >Try it</label>
+          <input id="image-upload" type="file" name="file" accept="image/*" />
+        </form>
+        <span
+          id="spinner"
+          class="spinner-border text-dark"
+          style="margin-left: 1rem; display: none"
+        >          
+      </span>
+      </div>
+
+      <div class = "image-section" style="display: none">
+        <div class = "img-preview">
+          <div id="imagePreview">
+          </div>
+        </div>
+        <div>
+          <button type="button" class="predict" id="btn-predict"><span class = "btn-predict-text">Predict</span></button>
+        </div>
+      </div>
+
+      <div style="margin: 1.5rem 0">
+        <p id="result"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="second-slide">
+  <div>
+    <img src="../static/assets/background2.svg" class="background2" />
+  </div>
+
+
+  <div style = "display: flex; padding: 1.5rem; justify-content: center; align-items: center;">
+    <h1 style = "color: black;">Character Recognition Process (Explained!)</h1>
+  </div>
+
+
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 1.5rem;
+    "
+  >
+    <div style="justify-content: center; padding: 5rem 0;">
+      <img src="../static/assets/pages.png" class="prop2" />
+    </div>
+    <div style="margin: 2rem;">
+        <div style = "margin: 1rem 0;">
+          <div style = "display: flex; justify-content: start; align-items: center;">
+            <div><img src = "../static/assets/b1.png" width="75"/></div>
+            <div style = "margin-top: 0.5rem; margin-left: 0.5rem;">
+              <h3>How it's done?</h3>
+            </div>
+          </div>
+          <hr/>
+        </div>
+        <div>
+          <p class = "description">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen.
+          </p>
+          <p class = "description">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="third-slide">
+  <div>
+    <img src = "../static/assets/background2.svg" class = "prop3a" />
+  </div>
+
+  <div class = "align-center third-heading">
+    <h1 style = "font-family: Work Sans; font-weight: bold;">Model Statistics</h1>
+  </div>
+
+  <div class = "align-center">
+    <div class = "inner-circle">
+      <div
+        class = "stat-circle align-center" style = "background-color: #4c4c4c;
+                filter: drop-shadow(7px 7px 50px rgba(0, 0, 0, 0.17));">
+        <h1 style = "font-family: Oswald; color: #FFE266;">0.039</h1>
+      </div>
+
+      <h4 style = "margin: 1rem 0;">Loss</h4>
+    </div>
+
+    <div class = "inner-circle">
+      <div class="stat-circle align-center" style="background-color: #FFE266;
+                        filter: drop-shadow(7px 7px 50px rgba(255, 226, 102, 0.43));">
+        <h1 style="font-family: Oswald; color: #4c4c4c;">99.3%</h1>
+      </div>
+
+      <h4 style = "margin: 1rem 0;">Accuracy</h4>
+    </div>
+
+    <div class = "inner-circle">
+      <div class="stat-circle align-center" style="background-color: #E8E7E5;
+                        filter: drop-shadow(7px 7px 50px rgba(9, 8, 8, 0.08));">
+        <h1 style="font-family: Oswald; color: #7E7D7D;">0.99</h1>
+      </div>
+
+      <h4 style = "margin: 1rem 0;">ROC AUC curve</h4>
+    </div>
+  </div>
+
+  <div>
+    <div class = "align-center">
+      <img src = "../static/assets/loss_graph.png" class = "graph"/>
+      <img src = "../static/assets/accuracy_graph.png" class = "graph" />
+    </div>
+  </div>
+</div>
+
+{% endblock %}

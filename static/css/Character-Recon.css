@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100vh;
+}
+
+.second-slide {
+  height: 100vh;
+  position: relative;
+}
+
+.third-slide {
+  height: 100vh;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  right: 15rem;
+  bottom: 0;
+  width: 25rem;
+}
+
+.background2 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 25rem;
+  z-index: -1;
+}
+
+.prop {
+  position: absolute;
+  width: 10rem;
+  left: 35rem;
+  top: 0;
+}
+
+.prop2 {
+  width: 32rem;
+}
+
+.prop3a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotateX(180deg);
+  width: 25rem;
+  z-index: -1;
+}
+
+.content {
+  padding-top: 9rem;
+  width: fit-content;
+}
+
+.third-heading {
+  padding: 2.5rem;
+}
+
+.description {
+  font-size: large;
+  margin: 0.5rem 0;
+  font-weight: normal;
+  width: 30rem;
+  height: auto;
+  font-family: "Roboto";
+}
+
+.reference {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.subtitle {
+  font-family: Poppins;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.title {
+  font-family: "Work Sans";
+  font-weight: bolder;
+  width: fit-content;
+}
+
+.buttonArena {
+  width: fit-content;
+  display: flex;
+}
+
+.uploadBtn {
+  margin: 0.5rem 0;
+  width: 180px;
+  height: 44px;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  letter-spacing: 0.2em;
+  font-family: "Work Sans", sans;
+  box-shadow: 10px 10px 20px rgba(120, 120, 0, 0.18);
+  border: none;
+  background: #212121;
+  margin-right: 5px;
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#result {
+  font-family: "Work Sans";
+  font-weight: bold;
+  font-size: larger;
+}
+
+.img-preview {
+  width: 145px;
+  height: 175px;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.img-preview>div {
+  width: 100%;
+  height: 100%;
+  background-size: 145px 175px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.predict {
+  width: 180px;
+  height: 44px;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 10px 10px 20px rgba(236, 236, 3, 0.18);
+  border: none;
+  background: #ffc804;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-predict-text {
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+  font-family: "Work Sans", sans;
+}
+
+.stat-circle {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+}
+
+.inner-circle {
+  margin: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.graph {
+  margin: 2rem 3rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .background {
+    display: none;
+  }
+
+  .logoMini {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cont {
+    padding: 1rem;
+    margin: 0 2rem;
+  }
+}
