@@ -60,7 +60,7 @@ def get_prediction_from_cnn(file_path):
     image = np.reshape(image, (1, 100, 100, 3))
     prediction = model.predict(image)
     char_index = np.argmax(prediction, axis = 0)
-    return character[char_index]
+    return characters[char_index]
     return str(image.shape)
 
 @app.route('/', methods=['GET'])
