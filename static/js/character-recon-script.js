@@ -31,10 +31,10 @@ $(document).ready(function() {
          var form_data = new FormData($('#uploadForm')[0]);
          $(this).hide();
          $('#spinner').show();
-
+        console.log("Reached ajax post.")
          $.ajax({
             type: 'POST',
-            url: '/predict',
+            url: window.location.origin + '/predict',
             data: form_data,
             contentType: false,
             cache: false,
@@ -43,7 +43,7 @@ $(document).ready(function() {
             success: function(data) {
                 $('#spinner').hide();
                 $('#result').fadeIn(600);
-                $('#result').text("Looks like it's <b>" + data + "</b> here.");
+                $('#result').text("Looks like it's " + data + " here.");
                 console.log('Success!');
             }
          });
