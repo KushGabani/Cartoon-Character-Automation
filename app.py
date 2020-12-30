@@ -66,6 +66,10 @@ def get_prediction_from_cnn(file_path):
 def index():
     return render_template('character-recognition.html')
 
+@app.route('/script-generation', methods=['GET'])
+def script_generation():
+    return render_template('script-generation.html')
+
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
     if request.method == "POST":

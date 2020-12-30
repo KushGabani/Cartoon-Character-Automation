@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simpsons - Character-Recognition</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Character-Recon.css') }}" />
+    {% block title %}{% endblock %}
+    {% block css %}{% endblock %}
     <!-- GOOGLE ROBOTO & DM SERIF FONT -->
     <link
       href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&family=Roboto&display=swap"
