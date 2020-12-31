@@ -1,10 +1,19 @@
 import os
+import io
+import sys
+import warnings
+import shutil
 import numpy as np
 import cv2
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 from flask import Flask, url_for, request, render_template
 from werkzeug.utils import secure_filename
+
+warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 
@@ -51,6 +60,29 @@ characters = ['Abraham Grampa Simpson',
  'Troy Mcclure',
  'Waylon Smithers']
 
+punctuations = {
+    '.' : "period", 
+    '[' : "leftbraces",
+    ']' : "rightbraces",
+    '(' : "leftparen",
+    ')' : "rightparen",
+    ';' : "semicolon",
+    '$' : "price",
+    '%' : "percentage",
+    '&' : "and",
+    '#' : "hash",
+    '\n' : "newline",
+    ':' : "colon", 
+    "'" : "apostrophe",
+    '/' : "or",
+    '"' : "quote",
+    ',' : "comma",
+    '?' : "question",
+    '*' : "asterisk",
+    '!' : "exclamation",
+    '-' : "hyphen",
+}
+
 def get_prediction_from_cnn(file_path):
     model = load_model("./cnn_model/character-recognition-model.h5")
 
@@ -62,6 +94,60 @@ def get_prediction_from_cnn(file_path):
     char_index = np.argmax(prediction, axis = 1)
     return characters[char_index[0]]
 
+def preprocess_text(text):
+  for punc, alt in punctuations.items():
+    text = text.replace(punc, ' ' + alt + ' ')
+  
+  text = text.replace("\n", punctuations["\n"])
+  tokens = text.split()
+  return tokens
+
+def get_tokenizer():
+    with io.open("./script_data/moes_tavern_lines.txt", encoding = "utf-8-sig") as f:
+        text = f.read().lower()
+        text = text[81:]
+
+    data = " ".join(text.split("\n"))
+    tokens = preprocess_text(data)
+
+    sequence_length = 50 + 1
+    lines = []
+
+    for i in range(sequence_length, len(tokens)):
+        sequence = tokens[i - sequence_length : i]
+        lines.append(' '.join(sequence))
+
+    tokenizer = Tokenizer()
+    tokenizer.fit_on_texts(lines)
+    return tokenizer
+
+def generate_script_from_lstm(text_input):
+    sequence_length = 50
+    n_words = 100
+    tokenizer = get_tokenizer()
+    model = load_model("./cnn_model/script-generation-model-with-punctuation.h5")
+
+    sys.stdout.write(text_input+ "\n");
+    text = []
+    for _ in range(n_words):
+        encoded = tokenizer.texts_to_sequences([text_input])[0]
+        encoded = pad_sequences([encoded], maxlen = sequence_length, truncating='pre')
+
+        y_predict = model.predict_classes(encoded)
+
+        predicted_word = ''
+        for word, index in tokenizer.word_index.items():
+            if index == y_predict:
+                predicted_word = word
+            break
+        text_input = text_input + ' ' + predicted_word
+
+        if predicted_word in list(punctuations.values()):
+            predicted_word = list(punctuations.keys())[list(punctuations.values()).index(predicted_word)]
+
+        text.append(predicted_word)
+    return ' '.join(text)
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('character-recognition.html')
@@ -71,7 +157,9 @@ def script_generation():
     if request.method == "GET":
         return render_template('script-generation.html', result = False)
     else:
-        return render_template('script-generation.html', result = True)
+        input_text = request.form['input']
+        output = generate_script_from_lstm(input_text)
+        return render_template('script-generation.html', result = output)
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -85,10 +173,6 @@ def upload():
         prediction = get_prediction_from_cnn(file_path)
         return prediction
     return 'GET Request /predict'
-
-@app.route("/generate-script", methods=["POST"])
-def gen_script():
-    return render_template('script-generation.html', result = request.form['input'])
 
 if __name__ == "__main__":
     app.run(debug=True)
