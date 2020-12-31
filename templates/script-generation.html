@@ -68,7 +68,7 @@
         
         {% if(result == False) %}
         <div class="input-container">
-            <form method="POST" id = "inputForm">
+            <form method="POST" id = "inputForm" action="/generate-script">
                 <input type = "text" autocomplete="off" placeholder="50 words as a context. . ." class = "inputText" id = "input" name = "input" />
                 <button type="submit" name="submit" id = "submit" style = "display: none;"></button>
             </form>
@@ -105,6 +105,8 @@
                 </div>
             </div>
         </div>
+        {% else %}
+          <h1>{{ result }}</h1>
         {% endif %}
       </div>
     </div>
