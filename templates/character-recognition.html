@@ -6,6 +6,10 @@
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Character-Recon.css') }}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
 {% endblock %}
 
 {% block content %}
@@ -65,7 +69,7 @@
               enctype="multipart/form-data"
               method="post">
           <label for = "image-upload" class = "uploadBtn" >Try it</label>
-          <input id="image-upload" type="file" name="file" accept="image/*"  style = "display: none;/>
+          <input id="image-upload" type="file" name="file" accept="image/*"  style = "display: none;"/>
         </form>
         <span
           id="spinner"
@@ -190,4 +194,10 @@
   </div>
 </div>
 
+{% endblock %}
+
+{% block scriptFooter %}
+  <footer>
+    <script type="text/javascript" src = "{{ url_for('static', filename='js/character-recon-script.js') }}"></script>
+  </footer>
 {% endblock %}

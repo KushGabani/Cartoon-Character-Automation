@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block title %}{% endblock %}
     {% block css %}{% endblock %}
-    <!-- GOOGLE ROBOTO & DM SERIF FONT -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
@@ -20,7 +15,5 @@
       {% block content  %}{% endblock %}
   </body>
 
-  <footer>
-    <script type="text/javascript" src = "{{ url_for('static', filename='js/character-recon-script.js') }}"></script>
-  </footer>
+  {% block scriptFooter %}{% endblock %}
 </html>

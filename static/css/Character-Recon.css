@@ -110,7 +110,7 @@ body {
   height: 44px;
   display: block;
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-radius: 5px;
   letter-spacing: 0.2em;
   font-family: "Work Sans", sans;
@@ -131,8 +131,8 @@ body {
 }
 
 .img-preview {
-  width: 145px;
-  height: 175px;
+  width: 130px;
+  height: 250px;
   position: relative;
   margin: 1rem 0;
 }

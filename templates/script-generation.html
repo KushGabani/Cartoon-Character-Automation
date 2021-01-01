@@ -7,16 +7,138 @@
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Script-Gen.css') }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&display=swap"
+      rel="stylesheet"
+    />
 {% endblock %}
 
     
 {% block content %}
-<div class = "container" style = "display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <h1 style="font-family: Roboto;">Hello!</h1>
-    <div style="width: 100%; height:100vh; margin:auto; ">
-        <form>
-            <input type = "text" class = "inputText" id = "input" name = "input" />
-        </form>
+
+<div class = "main_container">
+    <div>
+      <img src="../static/assets/script-prop.jpg" class="prop" />
     </div>
-</div>
+    <div class="container">
+      <a href = "#" style = "text-decoration: none; color: black;">
+      <div style = "width: fit-content; margin-top: 4rem;">
+        <div style="display: flex; justify-content: start; align-items: center;">
+          <img src="../static/assets/back.png" width="12" />
+          <p style = "margin: 0 0.5rem;">Home</p>
+        </div>
+      </div>
+      </a>
+      <div class="content" id="shiftUp">
+        <div class="reference">
+          <a href="#">
+            <img
+              src="../static/assets/GitHub-Mark-64px 3.png"
+              alt="GitHub-Mark-64px 3.png"
+              style="height: 2.4rem; width: 2.4rem; margin-top: -0.8rem"
+            />&nbsp;&nbsp;
+          </a>
+          <a
+            href="#"
+            style="color: #212121; text-decoration: none"
+            target="_blank"
+          >
+            <span
+              style="
+                font-size: 2.5rem;
+                font-family: 'Reem Kufi', sans;
+                margin-left: 1.5rem;
+              "
+              >kaggle
+            </span>
+          </a>
+        </div>
+  
+        <h1 class="title" style="color: #ffc804">Script Generation</h1>
+  
+        <p class="description">
+          Script Generation is a sequence to vector model that generates new dialogues
+          with previous words as a context. Here this is implemented using LSTMs. The network
+          has been trained with a total of around 80000 sequences with 50 words each.
+          To use this functionality 50 words must be provided as a context for the model to complete
+          and generate new dialogues. Create your dialogues now!
+        </p>
+        
+        {% if(result == False) %}
+        <div class="input-container">
+            <form method="POST" id = "inputForm" action="/script-generation" style="display: flex;">
+                <input type = "text" autocomplete="off" placeholder="100" class = "inputWord" id = "word" name = "word" />
+                <input type = "text" autocomplete="off" placeholder="50 words as a context. . ." class = "inputText" id = "input" name = "input" />
+                <button type="submit" name="submit" id = "submit" style = "display: none;"></button>
+            </form>
+        </div>
+  
+        <div style = "display: flex; justify-content: center; height: fit-content;">
+            <div class="card1 col-4" id = "default1">
+                <h3 class = "card-heading">Default Input I</h3>
+                <p class="card-description">Marge: Well, leave it to good old Mary Bailey to finally step in and do something about that hideous genetic mutation. . .</p>
+                <div class="go-corner" href="#">
+                <div class="go-arrow">
+                    →
+                </div>
+                </div>
+            </div>
+
+            <div class="card1 col-4" id = "default2" style = "margin-left: 4rem;">
+                <h3 class = "card-heading">Default Input II</h3>
+                <p class="card-description">Lenny_Leonard: It's too late to turn back, Moe. We've exchanged meaningful looks. No, you can still turn back!. . .</p>
+                <div class="go-corner" href="#">
+                <div class="go-arrow">
+                    →
+                </div>
+                </div>
+            </div>
+
+            <div class="card1 col-4" id = "default3" style = "margin-left: 4rem;">
+                <h3 class = "card-heading">Default Input III</h3>
+                <p class="card-description">Carl_Carlson: Calm down, calm down! She doesn't know it's you. (SCREAMS) Hide! Hide! Quickly! Go! . .</p>
+                <div class="go-corner" href="#">
+                <div class="go-arrow">
+                    →
+                </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class = "container script-output">
+                    {% autoescape false %}
+                        <p class = "css-typing"></p>
+                        <p id = "hiddenOutput" style="display: none;">{{ result }}</p>
+                    {% endautoescape%}
+                <script>
+
+                    let str = document.getElementById("hiddenOutput").innerHTML
+                    var spans = '<span>' + str.split(' ').join('</span> <span>') + '</span>';
+                    $(spans).hide().appendTo('.css-typing').each(function (i) {
+                        $(this).delay(40 * i).css({
+                            display: 'inline',
+                            opacity: 0
+                        }).animate({
+                            opacity: 1
+                        }, 100);
+                    });
+
+                </script>
+            </div>
+
+            <button onclick="handleDownloadClick(document.getElementById('hiddenOutput').innerHTML)" type="button" class="download" id="btn-download"><span class = "btn-download-text">Download</span></button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
+
+
+{% block scriptFooter %}
+  <footer>
+    <script type="text/javascript" src = "{{ url_for('static', filename='js/script-gen.js') }}"></script>
+  </footer>
 {% endblock %}
