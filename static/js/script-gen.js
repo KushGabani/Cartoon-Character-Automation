@@ -40,25 +40,7 @@ try {
         document.getElementById("input").value = input;
         document.getElementById("submit").click();
     }
-
-    $(document).ready(function() {      
-        $('#uploadForm').submit(function() {
-          $(this).ajaxSubmit({
-            error: function(xhr) {
-              console.log("ERR!");
-              document.getElementById("spinner").style.display = "none";	
-            },
-      
-            success: function(response) {
-            //   console.log(response);
-            //   document.getElementById("spinner").style.display = "none";
-            //   passParams(response.toString());
-            }
-          });
-          return false;
-        });
-      });
-      
+   
 }
 catch {
 

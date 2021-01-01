@@ -8,8 +8,9 @@ import cv2
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Embedding
 from flask import Flask, url_for, request, render_template
 from werkzeug.utils import secure_filename
 
@@ -84,7 +85,7 @@ punctuations = {
 }
 
 def get_prediction_from_cnn(file_path):
-    model = load_model("./cnn_model/character-recognition-model.h5")
+    model = load_model("./neural_networks/character-recognition-model.h5")
 
     image = cv2.imread(file_path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -97,7 +98,6 @@ def get_prediction_from_cnn(file_path):
 def preprocess_text(text):
   for punc, alt in punctuations.items():
     text = text.replace(punc, ' ' + alt + ' ')
-  
   text = text.replace("\n", punctuations["\n"])
   tokens = text.split()
   return tokens
@@ -107,28 +107,40 @@ def get_tokenizer():
         text = f.read().lower()
         text = text[81:]
 
-    data = " ".join(text.split("\n"))
-    tokens = preprocess_text(data)
+    print("Loaded script as a text file.")
 
+    tokens = preprocess_text(text)
+    print("Preprocessed data.")
     sequence_length = 50 + 1
     lines = []
 
     for i in range(sequence_length, len(tokens)):
         sequence = tokens[i - sequence_length : i]
         lines.append(' '.join(sequence))
+    print("Built sequences")
 
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(lines)
+    print("Fit tokenizer on data.")
     return tokenizer
 
-def generate_script_from_lstm(text_input):
+def generate_script_from_lstm(text_input, n_words):
     sequence_length = 50
-    n_words = 100
     tokenizer = get_tokenizer()
-    model = load_model("./cnn_model/script-generation-model-with-punctuation.h5")
+    vocab_size = len(tokenizer.word_index) + 1
 
-    sys.stdout.write(text_input+ "\n");
-    text = []
+    model = Sequential()
+    model.add(Embedding(vocab_size, 50, input_length=50))
+    model.add(LSTM(256))
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(vocab_size, activation='softmax'))
+    model.load_weights("./neural_networks/script-generation-model-weights-with-punctuation.h5")
+    model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics = ['accuracy'])
+
+    model = load_model("./neural_networks/script-generation-model-with-punctuation.h5")
+    print("Loaded Model")
+
+    text = ""
     for _ in range(n_words):
         encoded = tokenizer.texts_to_sequences([text_input])[0]
         encoded = pad_sequences([encoded], maxlen = sequence_length, truncating='pre')
@@ -139,14 +151,15 @@ def generate_script_from_lstm(text_input):
         for word, index in tokenizer.word_index.items():
             if index == y_predict:
                 predicted_word = word
-            break
+                break
         text_input = text_input + ' ' + predicted_word
 
         if predicted_word in list(punctuations.values()):
             predicted_word = list(punctuations.keys())[list(punctuations.values()).index(predicted_word)]
-
-        text.append(predicted_word)
-    return ' '.join(text)
+        text += predicted_word + " "
+        if predicted_word == ".":
+            text += "<br/>"
+    return text
 
 @app.route('/', methods=['GET'])
 def index():
@@ -158,7 +171,8 @@ def script_generation():
         return render_template('script-generation.html', result = False)
     else:
         input_text = request.form['input']
-        output = generate_script_from_lstm(input_text)
+        n_words = int(request.form['word']) if request.form['word'] else 100
+        output = generate_script_from_lstm(input_text, n_words)
         return render_template('script-generation.html', result = output)
 
 @app.route('/predict', methods=['GET', 'POST'])
