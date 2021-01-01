@@ -170,9 +170,11 @@ def script_generation():
     if request.method == "GET":
         return render_template('script-generation.html', result = False)
     else:
-        input_text = request.form['input']
+        beginning = request.form['input']
+        input_text = beginning.replace("<br/>", "")
         n_words = int(request.form['word']) if request.form['word'] else 100
         output = generate_script_from_lstm(input_text, n_words)
+        output = beginning + "<br/>" + output
         return render_template('script-generation.html', result = output)
 
 @app.route('/predict', methods=['GET', 'POST'])

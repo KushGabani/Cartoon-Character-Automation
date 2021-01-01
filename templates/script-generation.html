@@ -61,7 +61,7 @@
         <p class="description">
           Script Generation is a sequence to vector model that generates new dialogues
           with previous words as a context. Here this is implemented using LSTMs. The network
-          has been trained with a total of around 50000 sequences with 50 words each.
+          has been trained with a total of around 80000 sequences with 50 words each.
           To use this functionality 50 words must be provided as a context for the model to complete
           and generate new dialogues. Create your dialogues now!
         </p>
@@ -78,7 +78,7 @@
         <div style = "display: flex; justify-content: center; height: fit-content;">
             <div class="card1 col-4" id = "default1">
                 <h3 class = "card-heading">Default Input I</h3>
-                <p class="card-description">Moe_Szyslak: (INTO PHONE) Moe's Tavern. Where the elite meet to drink. Eh, yeah, hello, is Mike there?. . .</p>
+                <p class="card-description">Marge: Well, leave it to good old Mary Bailey to finally step in and do something about that hideous genetic mutation. . .</p>
                 <div class="go-corner" href="#">
                 <div class="go-arrow">
                     →
@@ -107,28 +107,28 @@
             </div>
         </div>
         {% else %}
-          <div class = "container script-output">
-              <div class = "">
-                {% autoescape false %}
-                  <h3 class = "css-typing"></h3>
-                  <p id = "hiddenOutput" style="display: none;">{{ result }}</p>
-                  {% endautoescape%}
-              </div>
-              <script>
+            <div class = "container script-output">
+                    {% autoescape false %}
+                        <p class = "css-typing"></p>
+                        <p id = "hiddenOutput" style="display: none;">{{ result }}</p>
+                    {% endautoescape%}
+                <script>
 
-                let str = document.getElementById("hiddenOutput").innerHTML
-                var spans = '<span>' + str.split(' ').join('</span> <span>') + '</span>';
-                $(spans).hide().appendTo('.css-typing').each(function (i) {
-                    $(this).delay(40 * i).css({
-                        display: 'inline',
-                        opacity: 0
-                    }).animate({
-                        opacity: 1
-                    }, 100);
-                });
+                    let str = document.getElementById("hiddenOutput").innerHTML
+                    var spans = '<span>' + str.split(' ').join('</span> <span>') + '</span>';
+                    $(spans).hide().appendTo('.css-typing').each(function (i) {
+                        $(this).delay(40 * i).css({
+                            display: 'inline',
+                            opacity: 0
+                        }).animate({
+                            opacity: 1
+                        }, 100);
+                    });
 
-              </script>
-          </div>
+                </script>
+            </div>
+
+            <button onclick="handleDownloadClick(document.getElementById('hiddenOutput').innerHTML)" type="button" class="download" id="btn-download"><span class = "btn-download-text">Download</span></button>
         {% endif %}
       </div>
     </div>
