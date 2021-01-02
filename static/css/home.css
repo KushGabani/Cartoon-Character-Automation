@@ -16,8 +16,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 8rem 0 2.5rem 0;
-}
+    margin: 12rem 0 2.5rem 0;
+  }
 
 .heading-text {
     font-family: Poppins;
@@ -47,8 +47,8 @@ body {
     width: 65%;
     display: block;
     border-radius: 15px;
-    box-shadow: -15px -15px 50px 2px rgba(0, 0, 0, 0.06),
-      15px 15px 50px 2px rgba(0, 0, 0, 0.06);
+    box-shadow: -25px -25px 50px 2px rgba(0, 0, 0, 0.10),
+      25px 25px 50px 2px rgba(0, 0, 0, 0.10);
   }
   
   .cardTitle {
@@ -110,7 +110,7 @@ body {
     display: block;
     background: #fff;
     border-radius: 0 0 15px 15px;
-    height: 200px;
+    height: fit-content;
     margin-top: -10px;
     padding: 0;
   }
@@ -141,18 +141,8 @@ body {
     margin-top: -20px;
     height: 20%;
     visibility: visible;
-    box-shadow: -25px -25px 50px 2px rgba(0, 0, 0, 0.2),
-      25px 25px 50px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card1:hover .cell {
-    transition-property: top;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-out;
-    position: absolute;
-    height: 8rem;
-    top: -4.5rem;
-    left: 1.5rem;
+    box-shadow: -10px -10px 30px 2px rgba(0, 0, 0, 0.15),
+      10px 10px 30px 2px rgba(0, 0, 0, 0.15);
   }
 
   .description {
@@ -173,58 +163,28 @@ body {
     letter-spacing: 0.02em;
     color: #000000;
   }
-
-  .aboutUsUP {
-    position: absolute;
-    font-family: "DM Serif Display", serif;
-    font-size: x-large;
-    right: 1.5rem;
-    top: 0rem;
-    color: #212121;
-    border-bottom: 2px solid #ff9000;
-    margin: 1.5rem 1.5rem 0 0;
-  }
-  
+ 
   .footers {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 55px;
+    margin-top: 6rem;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
   }
-  
-  .aboutUsDown {
-    position: relative;
-    font-family: "DM Serif Display", serif;
-    font-size: x-large;
-    border-top: 2px solid #ff9000;
-    color: #212121;
-    padding: 1rem;
-    display: none;
-    width: 60vw;
-    text-align: center;
+
+  .prop { 
+    width: 20rem;
+    position: absolute;
+    top: -1.3%;
+    left: 38.5%;
   }
   
   @media screen and (max-width: 1024px) {
     .heading {
       font-family: "Roboto", sans-serif;
-      /* font-weight: 600; */
       text-align: center;
       width: 70vw;
-    }
-  
-    .cell {
-      position: absolute;
-      height: 8rem;
-      top: -3.5rem;
-      left: 0.45rem;
-    }
-  
-    .aboutUsUP {
-      display: none;
-    }
-  
-    .aboutUsDown {
-      display: block;
     }
   }

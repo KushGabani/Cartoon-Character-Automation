@@ -36,7 +36,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 25rem;
+  width: 35rem;
   z-index: -1;
 }
 
@@ -48,7 +48,8 @@ body {
 }
 
 .prop2 {
-  width: 32rem;
+  width: 50rem;
+  margin-right: 10rem;
 }
 
 .prop3a {
@@ -56,7 +57,7 @@ body {
   left: 0;
   top: 0;
   transform: rotateX(180deg);
-  width: 25rem;
+  width: 35rem;
   z-index: -1;
 }
 
@@ -73,7 +74,7 @@ body {
   font-size: large;
   margin: 0.5rem 0;
   font-weight: normal;
-  width: 30rem;
+  width: 35rem;
   height: auto;
   font-family: "Roboto";
 }

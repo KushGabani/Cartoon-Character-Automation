@@ -55,7 +55,7 @@
 
 .input-container {
     display: flex;
-    margin: 4rem 0;
+    margin: 5rem 0;
     justify-content: center;
     align-items: center;
 }
@@ -69,7 +69,6 @@
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     padding: 1rem 3rem;
-    margin: 0 4rem;
     text-decoration: none;
     z-index: 0;
     overflow: hidden;
@@ -195,28 +194,6 @@ height: 100vh;
     letter-spacing: 0.1rem;
     font-family: "Work Sans", sans;
   }
-
-/* 
-.typing h3 {
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .1em;
-    animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
-  }
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-from, to { border-color: transparent }
-50% { border-color: orange; }
-} */
 
 .main_container {
     margin-left: -10rem;
