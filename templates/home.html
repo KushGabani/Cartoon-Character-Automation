@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+  <title>Simpsons - Home</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .card1 a {
+        text-decoration: none !important;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div scroll = "no">
+    <a href="aboutus.html" style="text-decoration: none"
+      ><span class="aboutUsUP">About Us</span></a
+    >
+
+    <div class="heading">
+      <div>
+        <span class = "heading-text">Simpsons Parody</span>
+      </div>
+      <div>
+        <span class = "subtitle-text">CARTOON CHARACTER AUTOMATION</span>
+      </div>
+    </div>
+
+    <div class="container-fluid description" style="width: fit-content">
+      <p
+        class = "desc"
+      >
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum<br />
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer<br />
+      took a galley of type and scrambled it to make a type specimen.
+    </div>
+
+    <hr class="mt-5 mb-3" style="background-color: #ff9000; width: 45vw" />
+
+    <div class="row align-center" style="margin: 3rem;">
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 my-3 p-0 mt-5" style="width: 38rem;">
+        <div class="column1" style="display: flex; justify-content: center">
+          <div class="card1">
+            <div class="imgBox1">
+              <img src="./../static/assets/char-recog.png" alt="" />
+            </div>
+            <div class="cardBody1">
+              <div class="top1">
+                <div class="title">
+                  <span class="cardTitle">Character Recognition</span>
+                </div>
+                <p
+                  style="
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: normal;
+                    color: #212121;
+                    font-size: 14px;
+                    margin-left: 1.3rem;
+                  "
+                >
+                Classfying 23 characters with
+                DCNNs with the help of images.
+                </p>
+                <div class="footers">
+                  <a
+                    href="https://github.com/KushGabani/Project-Ether/keras-models/Respiratory-disease-detection.ipynb"
+                  >
+                    <img
+                      src= "./../static/assets/GitHub-Mark-64px 3.png"
+                      alt="GitHub-Mark-64px 3.png"
+                      style="height: 2.5rem; width: 2.5rem; margin-left: 1rem"
+                    />
+                  </a>
+                  <a href="/character-recognition"
+                    ><button class="tryButton">TRY IT</button></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-4 col-lg-4 col-md-4 col-sm-12 my-3 p-0 mt-5"
+        style="width: 38rem;"
+      >
+        <div class="column1" style="display: flex; justify-content: center">
+          <div class="card1">
+            <div class="imgBox1">
+              <img src="./../static/assets/script-gen.png" alt="" />
+            </div>
+            <div class="cardBody1">
+              <div class="top1">
+                <div class="title">
+                  <span class="cardTitle">Script Generation</span>
+                </div>
+                <p
+                  style="
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: normal;
+                    color: #212121;
+                    font-size: 14px;
+                    margin-left: 1.3rem;
+                  "
+                >
+                Generating dialogues based on previous context using LTSMs.
+                </p>
+                <div class="footers">
+                    <a href="#">
+                        <img
+                        src="./../static/assets/GitHub-Mark-64px 3.png"
+                        alt="GitHub-Mark-64px 3.png"
+                        style="height: 2.5rem; width: 2.5rem; margin-left: 1rem"
+                        />
+                    </a>
+                    <a href="/script-generation">
+                        <button class="tryButton">TRY IT</button>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <p class="aboutUsDown mx-auto mt-5">About Us</p>
+</div>
+{% endblock %}

@@ -162,6 +162,10 @@ def generate_script_from_lstm(text_input, n_words):
     return text
 
 @app.route('/', methods=['GET'])
+def home():
+    return render_template('home.html')
+
+@app.route('/character-recognition', methods=['GET'])
 def index():
     return render_template('character-recognition.html')
 
