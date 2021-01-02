@@ -184,6 +184,7 @@ height: 100vh;
     border: none;
     background: #ffc804;
     margin-right: 5px;
+    margin-bottom: 3rem;
     cursor: pointer;
 }
 .btn-download-text {
@@ -265,12 +266,6 @@ from, to { border-color: transparent }
     font-family: "Work Sans";
     font-weight: bolder;
     width: fit-content;
-}
-
-#result {
-    font-family: "Work Sans";
-    font-weight: bold;
-    font-size: larger;
 }
   
 @media screen and (max-width: 1024px) {
