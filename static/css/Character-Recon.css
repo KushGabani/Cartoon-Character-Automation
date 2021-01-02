@@ -74,7 +74,7 @@ body {
   font-size: large;
   margin: 0.5rem 0;
   font-weight: normal;
-  width: 35rem;
+  width: 40rem;
   height: auto;
   font-family: "Roboto";
 }
@@ -170,9 +170,10 @@ input[type="file"] {
 }
 
 .stat-circle {
-  width: 9rem;
-  height: 9rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 50%;
+  text-align: center;
 }
 
 .inner-circle {
@@ -180,6 +181,10 @@ input[type="file"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.graphs {
+  margin: 5rem 0;
 }
 
 .graph {

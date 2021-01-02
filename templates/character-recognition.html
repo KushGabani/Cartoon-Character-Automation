@@ -131,15 +131,18 @@
         </div>
         <div>
           <p class = "description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of
-            type and scrambled it to make a type specimen.
+            The image before passing on to the neural network, undergoes a preprocessing stage.
+            The image is converted from BGR form to RGB and resized as a 100 x 100 pixel image.
+            To classify the characters, a deep convolutional neural network consisting
+            7 convolutional layers divided into 4 Pooling layers and then the extracted
+            features from the convolutional layer are passed as an input to a dense 2 layer
+            neural network.
           </p>
           <p class = "description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever
+            The dense neural network layers outputs probability for each
+            character that could be in the image. charactes's class having the 
+            highest probability
+            is taken as the predicted character.
           </p>
         </div>
       </div>
@@ -161,7 +164,7 @@
       <div
         class = "stat-circle align-center" style = "background-color: #4c4c4c;
                 filter: drop-shadow(7px 7px 50px rgba(0, 0, 0, 0.17));">
-        <h1 style = "font-family: Oswald; color: #FFE266;">0.039</h1>
+        <span style = "font-family: Oswald; color: #FFE266; font-size: 36px;">0.039</span>
       </div>
 
       <h4 style = "margin: 1rem 0;">Loss</h4>
@@ -170,7 +173,7 @@
     <div class = "inner-circle">
       <div class="stat-circle align-center" style="background-color: #FFE266;
                         filter: drop-shadow(7px 7px 50px rgba(255, 226, 102, 0.43));">
-        <h1 style="font-family: Oswald; color: #4c4c4c;">99.3%</h1>
+        <span style="font-family: Oswald; color: #4c4c4c; font-size: 36px;">99.3%</span>
       </div>
 
       <h4 style = "margin: 1rem 0;">Accuracy</h4>
@@ -179,7 +182,7 @@
     <div class = "inner-circle">
       <div class="stat-circle align-center" style="background-color: #E8E7E5;
                         filter: drop-shadow(7px 7px 50px rgba(9, 8, 8, 0.08));">
-        <h1 style="font-family: Oswald; color: #7E7D7D;">0.99</h1>
+        <span style="font-family: Oswald; color: #7E7D7D; font-size: 36px;">0.99</span>
       </div>
 
       <h4 style = "margin: 1rem 0;">ROC AUC curve</h4>
@@ -187,7 +190,7 @@
   </div>
 
   <div>
-    <div class = "align-center">
+    <div class = "graphs align-center">
       <img src = "../static/assets/loss_graph.png" class = "graph"/>
       <img src = "../static/assets/accuracy_graph.png" class = "graph" />
     </div>
