@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputText {
     width: 70vw;
     height: 6rem;
@@ -151,16 +157,6 @@
     font-family: courier, sans;
 }
 
-.align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-height: 100vh;
-}
-
 .script-output {
     height: fit-content;
     margin: 5rem 0;
@@ -218,9 +214,23 @@ height: 100vh;
     width: fit-content;
 }
 
+.third-slide {
+    /* height: 100%; */
+    position: relative;
+}
+
 .third-heading {
     padding: 2.5rem;
 }
+
+.prop3a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotateX(180deg);
+    width: 35rem;
+    z-index: -1;
+  }
 
 .description {
     font-size: large;
@@ -252,6 +262,49 @@ height: 100vh;
     width: fit-content;
 }
   
+.stat-circle {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.inner-circle {
+    margin: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graphs {
+    margin-top: 5rem;
+}
+
+.graph {
+    margin: 2rem 8rem;
+}
+  
+
+.predict {
+    width: 180px;
+    height: 44px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px rgba(236, 236, 3, 0.18);
+    border: none;
+    background: #ffc804;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-predict-text {
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+    font-family: "Work Sans", sans;
+}
+  
+
 @media screen and (max-width: 1024px) {
     .prop {
         display: none;

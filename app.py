@@ -9,8 +9,6 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Embedding
 from flask import Flask, url_for, request, render_template
 from werkzeug.utils import secure_filename
 
@@ -128,14 +126,6 @@ def generate_script_from_lstm(text_input, n_words):
     sequence_length = 50
     tokenizer = get_tokenizer()
     vocab_size = len(tokenizer.word_index) + 1
-
-    model = Sequential()
-    model.add(Embedding(vocab_size, 50, input_length=50))
-    model.add(LSTM(256))
-    model.add(Dense(128, activation='relu'))
-    model.add(Dense(vocab_size, activation='softmax'))
-    model.load_weights("./neural_networks/script-generation-model-weights-with-punctuation.h5")
-    model.compile(loss = 'categorical_crossentropy', optimizer = 'adam', metrics = ['accuracy'])
 
     model = load_model("./neural_networks/script-generation-model-with-punctuation.h5")
     print("Loaded Model")

@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -41,6 +41,13 @@ body {
     align-items: center;
     letter-spacing: 0.3em;
     color: #000000;
+}
+
+.cards {
+  margin: 3rem;
+  background-image: url('./../assets/home_background.png');
+  background-repeat: repeat;
+  background-size: auto;
 }
 
   .card1 {

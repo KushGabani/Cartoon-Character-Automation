@@ -42,8 +42,8 @@ body {
 
 .prop {
   position: absolute;
-  width: 10rem;
-  left: 35rem;
+  width: 16rem;
+  left: 55rem;
   top: 0;
 }
 
@@ -106,7 +106,7 @@ body {
 }
 
 .uploadBtn {
-  margin: 0.5rem 0;
+  margin: 2.5rem 0;
   width: 180px;
   height: 44px;
   display: block;

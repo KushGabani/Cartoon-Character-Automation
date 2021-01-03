@@ -13,7 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans&family=Reem+Kufi&family=Oswald&display=swap"
       rel="stylesheet"
     />
-    <!-- https://tensorboard.dev/experiment/JOWxat2WSXWDCnDYEFvM7Q/ -->
 {% endblock %}
 
     
@@ -28,7 +27,7 @@
       <div style = "width: fit-content; margin-top: 4rem;">
         <div style="display: flex; justify-content: start; align-items: center;">
           <img src="../static/assets/back.png" width="12" />
-          <p style = "margin: 0 0.5rem;">Home</p>
+          <p style = "margin: 0 0.5rem; font-size: 20px;">Home</p>
         </div>
       </div>
       </a>
@@ -134,7 +133,60 @@
       </div>
     </div>
   </div>
+
+  <div class="third-slide">
+    <div>
+      <img src = "../static/assets/background2.svg" class = "prop3a" />
+    </div>
   
+    <div class = "align-center third-heading">
+      <h1 style = "font-family: Work Sans; font-weight: bold;">Model Statistics</h1>
+    </div>
+  
+    <div class = "align-center">
+      <div class = "inner-circle">
+        <div
+          class = "stat-circle align-center" style = "background-color: #4c4c4c;
+                  filter: drop-shadow(7px 7px 50px rgba(0, 0, 0, 0.17));">
+          <span style = "font-family: Oswald; color: #FFE266; font-size: 36px;">0.098</span>
+        </div>
+  
+        <h4 style = "margin: 1rem 0;">Loss</h4>
+      </div>
+  
+      <div class = "inner-circle">
+        <div class="stat-circle align-center" style="background-color: #FFE266;
+                          filter: drop-shadow(7px 7px 50px rgba(255, 226, 102, 0.43));">
+          <span style="font-family: Oswald; color: #4c4c4c; font-size: 36px;">97.1%</span>
+        </div>
+  
+        <h4 style = "margin: 1rem 0;">Accuracy</h4>
+      </div>
+      
+      <div class = "inner-circle">
+        <div class="stat-circle align-center" style="background-color: #FFE266;
+                          filter: drop-shadow(7px 7px 50px rgba(255, 226, 102, 0.43));">
+          <span style="font-family: Oswald; color: #4c4c4c; font-size: 36px;">0.04</span>
+        </div>
+
+        <h4 style = "margin: 1rem 0;">MAE</h4>
+      </div>
+    </div>
+    <div>
+      <div class = "graphs align-center">
+        <img src = "../static/assets/scipt-accuracy-graph.png" class = "graph"/>
+        <img src = "../static/assets/script-loss-graph.png" class = "graph" />
+      </div>
+    </div>
+
+    <div class="align-center" style="margin: 1.5rem 0;">
+      <a href = "https://tensorboard.dev/experiment/JOWxat2WSXWDCnDYEFvM7Q/" target = "_blank">
+        <button type="button" class="predict">
+          <span class = "btn-predict-text">Visualize</span>
+        </button>
+      </a>
+    </div>
+  </div>
 {% endblock %}
 
 
