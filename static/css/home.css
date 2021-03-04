@@ -1,197 +1,198 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .align-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 12rem 0 2.5rem 0;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12rem 0 2.5rem 0;
+}
 
 .heading-text {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 45px;
-    line-height: 67px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.065em;
-    color: #000000;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 67px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.065em;
+  color: #000000;
 }
 
 .subtitle-text {
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: 200;
-    font-size: 16px;
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.3em;
-    color: #000000;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.3em;
+  color: #000000;
 }
 
 .cards {
   margin: 3rem;
-  background-image: url('./../assets/home_background.png');
+  background-image: url("./../assets/home_background.png");
   background-repeat: repeat;
   background-size: auto;
 }
 
-  .card1 {
-    width: 65%;
-    display: block;
-    border-radius: 15px;
-    box-shadow: -25px -25px 50px 2px rgba(0, 0, 0, 0.10),
-      25px 25px 50px 2px rgba(0, 0, 0, 0.10);
-  }
-  
-  .cardTitle {
-    font-family: "DM Serif Display", serif;
-    margin: 1.4rem 0 1rem 0.5rem;
-    font-size: large;
-    font-weight: normal;
-  }
-  
-  .cardDescription {
+.card1 {
+  width: 65%;
+  display: block;
+  border-radius: 15px;
+  box-shadow: -25px -25px 50px 2px rgba(0, 0, 0, 0.1),
+    25px 25px 50px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitle {
+  font-family: "DM Serif Display", serif;
+  margin: 1.4rem 0 1rem 0.5rem;
+  font-size: large;
+  font-weight: normal;
+}
+
+.cardDescription {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: black;
+  font-size: 16;
+  margin-left: 1.3rem;
+}
+
+.card1 a {
+  color: #575555;
+}
+
+.imgBox1 {
+  margin: 0;
+  padding: 0;
+  border-radius: 15px 15px 0 0;
+  height: 135px;
+  width: 100%;
+}
+.imgBox1 img {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.tryButton {
+  outline: none;
+  width: 95px;
+  height: 32px;
+  padding: 0px;
+  border-radius: 5px;
+  border: none;
+  background: #ff9000;
+  margin-right: 2rem;
+  color: white;
+  font-size: small;
+}
+
+.title {
+  color: black;
+  text-align: center;
+  display: flex;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.cardBody1 {
+  display: block;
+  background: #fff;
+  border-radius: 0 0 15px 15px;
+  height: fit-content;
+  margin-top: -10px;
+  padding: 0;
+}
+
+.cardBody1 .title {
+  margin: 0.8rem 0 0 0.8rem;
+  font-weight: 500;
+  line-height: 0.8rem;
+}
+
+.cardBody1 p {
+  margin: 0 0.8rem;
+  font-weight: lighter;
+  color: #686868;
+  font-size: 0.9rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.card1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.card1:hover {
+  transition-property: box-height, margin-top, box-shadow;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
+  margin-top: -20px;
+  height: 20%;
+  visibility: visible;
+  box-shadow: -10px -10px 30px 2px rgba(0, 0, 0, 0.15),
+    10px 10px 30px 2px rgba(0, 0, 0, 0.15);
+}
+
+.description {
+  display: flex;
+  margin: 3rem 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
+.footers {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.prop {
+  width: 20rem;
+  position: absolute;
+  top: -1.25%;
+  left: 39.7%;
+}
+
+@media screen and (max-width: 1024px) {
+  .heading {
     font-family: "Roboto", sans-serif;
-    font-weight: normal;
-    color: black;
-    font-size: 16;
-    margin-left: 1.3rem;
-  }
-  
-  .card1 a {
-    color: #575555;
-  }
-  
-  .imgBox1 {
-    margin: 0;
-    padding: 0;
-    border-radius: 15px 15px 0 0;
-    height: 135px;
-    width: 100%;
-  }
-  .imgBox1 img {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px 15px 0px 0px;
-  }
-  
-  .tryButton {
-    outline: none;
-    width: 95px;
-    height: 32px;
-    padding: 0px;
-    border-radius: 5px;
-    border: none;
-    background: #ff9000;
-    margin-right: 2rem;
-    color: white;
-    font-size: small;
-  }
-  
-  .title {
-    color: black;
     text-align: center;
-    display: flex;
-    margin-top : 2rem!important;
-    margin-bottom : 1rem!important;
+    width: 70vw;
   }
-  
-  .cardBody1 {
-    display: block;
-    background: #fff;
-    border-radius: 0 0 15px 15px;
-    height: fit-content;
-    margin-top: -10px;
-    padding: 0;
-  }
-  
-  .cardBody1 .title {
-    margin: 0.8rem 0 0 0.8rem;
-    font-weight: 500;
-    line-height: 0.8rem;
-  }
-  
-  .cardBody1 p {
-    margin: 0 0.8rem;
-    font-weight: lighter;
-    color: #686868;
-    font-size: 0.9rem;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  }
-  
-  .card1 a {
-    text-decoration: none;
-    color: black;
-  }
-  
-  .card1:hover {
-    transition-property: box-height, margin-top, box-shadow;
-    transition-duration: 0.4s;
-    transition-timing-function: ease-out;
-    margin-top: -20px;
-    height: 20%;
-    visibility: visible;
-    box-shadow: -10px -10px 30px 2px rgba(0, 0, 0, 0.15),
-      10px 10px 30px 2px rgba(0, 0, 0, 0.15);
-  }
-
-  .description {
-    display: flex;
-    margin: 3rem 0 ;
-    justify-content:  center;
-    align-items: center;
-  }
-
-  .desc {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.02em;
-    color: #000000;
-  }
- 
-  .footers {
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 6rem;
-    margin-left: 1rem;
-    margin-right: 0.5rem;
-  }
-
-  .prop { 
-    width: 20rem;
-    position: absolute;
-    top: -1.3%;
-    left: 39%;
-  }
-  
-  @media screen and (max-width: 1024px) {
-    .heading {
-      font-family: "Roboto", sans-serif;
-      text-align: center;
-      width: 70vw;
-    }
-  }
+}
